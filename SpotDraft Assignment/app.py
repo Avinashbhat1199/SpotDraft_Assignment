@@ -131,15 +131,17 @@ def favmovie():
                  if query['id']==None:
                          return "405"
                  
-                 planetname=query['moviename']
+                 moviename=query['moviename']
+                 newdata=movies.query.get(moviename)
+                 newdata.is_fav=True
+                 db.session.add(newdata)
+                 
                  #customname=query['customname']
                  url = "https://swapi.dev/api/planets/"
                  data=requests.get(url,verify=False)
                  jsondata=data.json()
                  if planetname in jsondata['result']:
-                               for child in jsondata['results']:
-                                    
-                                            
+                               for child in jsondata['results']:                                            
                                        name=child['title']
                                        created=child['created']
                                        updated=child['edited']
@@ -155,7 +157,11 @@ def favplant():
                  if query['id']==None:
                          return "405"
                  
-                 moviename=query['moviename']
+                 planetname=query['name']
+                 newdata=planet.query.get(planetname)
+                 newdata.is_fav=True
+                 db.session.add(newdata)
+                 
                  #customname=query['customname']
                  url = "https://swapi.dev/api/films/"
                  data=requests.get(url,verify=False)
