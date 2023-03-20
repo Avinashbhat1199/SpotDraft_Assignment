@@ -149,7 +149,7 @@ def favmovie():
                                        return json.dumps(movie_list)
 planetlist=[]
 @app.route('/favorites/planet/', methods = ['POST'])   
-def favmovie():
+def favplant():
         if request.is_json:
                  query=request.get_json()
                  if query['id']==None:
@@ -171,8 +171,8 @@ def favmovie():
                                        is_fav=True
                                        planetlist.append({'id':query['id'],'customname':query['customname'],'name':name,'created':created,'edited':updated,'url':url,'is_fav':is_fav})
                                        return json.dumps(planetlist)
-@app.route('/favorites/search/movie', methods = ['POST'])       
-def search():
+@app.route('/search/movie', methods = ['POST'])       
+def searchmovie():
         query=request.get_json()
         if query['titile']==None:
                          return "405"
@@ -183,8 +183,8 @@ def search():
         search=movies.query.filter_by(title=moviename)
         return json.dumps(search)
         
-@app.route('search/planet', methods = ['POST'])       
-def search():
+@app.route('/search/planet', methods = ['POST'])       
+def searchplanet():
         query=request.get_json()
         if query['titile']==None:
                          return "405"
