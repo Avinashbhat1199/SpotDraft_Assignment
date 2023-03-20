@@ -5,7 +5,7 @@ A simple favorites app that lets us view/favorite Star Wars data. The data is lo
 ## Running the Server
 
 1. Install the requirements with the command `pip install -r requirements.txt`
-2. DB setup need set flask variable 
+2. DB setup need set flask variable- $env:FLASK_APP ="app.py"
 3. db migration run commands -  flask db init 
                                                    flask db migrate -m " comment"
                                                    flask db upgrade
