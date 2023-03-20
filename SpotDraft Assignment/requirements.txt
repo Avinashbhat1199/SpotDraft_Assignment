@@ -1,0 +1,4 @@
+Flask
+requests
+SQLAlchemy 2.0.7
+Flask-Migrate 4.0.4
